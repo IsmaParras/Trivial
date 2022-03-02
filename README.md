@@ -17,3 +17,6 @@ En tirarDado() colocamos el if de forma que el jugador pueda salir de la cárcel
 
 ## Problema 4
 En el launcher cambio la variable noGanador por ganador y cuando se de se acabe la partida.
+
+## Problema 5
+Selecciono el código para pasar al siguiente jugador en la clase "Game" y hago un extract method y lo voy cambiando en todos los lugares donde esté.

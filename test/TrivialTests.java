@@ -100,6 +100,6 @@ public class TrivialTests {
         sut.respuestaIncorrecta();
         sut.tirarDado(1);
         sut.nuevaPosicionJugador();
-        sut.fueRespuestaCorrecta();
+        sut.RespuestaCorrecta();
     }
 }

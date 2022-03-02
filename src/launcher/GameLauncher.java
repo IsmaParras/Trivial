@@ -23,7 +23,7 @@ public class GameLauncher {
             if (rand.nextInt(9) == 7) {
                 Ganador = juego.respuestaIncorrecta();
             } else {
-                Ganador = juego.fueRespuestaCorrecta();
+                Ganador = juego.RespuestaCorrecta();
             }
 
 
