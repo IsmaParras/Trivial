@@ -24,10 +24,8 @@ public class TrivialTests {
 
         String expected = "La nueva posición de María es 1";
 
-        // Act
         String actual = sut.nuevaPosicionJugador();
 
-        // Assert
         Assertions.assertEquals(expected, actual);
     }
 
@@ -89,4 +87,19 @@ public class TrivialTests {
             Assertions.assertEquals(expected, actual);
         } catch (ArrayIndexOutOfBoundsException e){
         }
-    }}
+    }
+
+    @Test
+    public void salirCarcel() {
+        Game sut = new Game();
+        sut.agregar("María");
+        sut.agregar("Juan");
+
+        sut.respuestaIncorrecta();
+        sut.tirarDado(2);
+        sut.respuestaIncorrecta();
+        sut.tirarDado(1);
+        sut.nuevaPosicionJugador();
+        sut.fueRespuestaCorrecta();
+    }
+}

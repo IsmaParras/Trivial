@@ -43,8 +43,6 @@ public class Game {
     }
 
     public boolean agregar(String playerName) {
-
-
         jugadores.add(playerName);
         posiciones[cuantosJugadores()] = 0;
         monederos[cuantosJugadores()] = 0;
@@ -69,11 +67,13 @@ public class Game {
 
                 System.out.println(jugadores.get(jugadorActual) + " sale de la casilla de castigo");
                 posiciones[jugadorActual] = posiciones[jugadorActual] + puntosDado;
-                if (posiciones[jugadorActual] > 11) posiciones[jugadorActual] = posiciones[jugadorActual] - 12;
-
+                if (posiciones[jugadorActual] > 11) {
+                    posiciones[jugadorActual] = posiciones[jugadorActual] - 12;
+                }
                 System.out.println(nuevaPosicionJugador());
                 System.out.println("La categoría es " + categoriaActual());
                 hacerPregunta();
+
             } else {
                 System.out.println(jugadores.get(jugadorActual) + " no sale de la casilla de castigo");
                 estaSaliendoDeLaCarcel = false;

@@ -11,3 +11,6 @@ Creamos las condiciones de jugadores en el método esJugable(). Para comprobarlo
 
 ## Problema 2
 Creamos la condición de más de 6 jugadores en el método esJugable(). En el test que he creado se comprueba que haya más de seis jugadores.
+
+## Problema 3
+En tirarDado() colocamos el if de forma que el jugador pueda salir de la cárcel. Lo comprueblo en los test con salirCarcel() donde el jugador sale al acertal la pregunta.
