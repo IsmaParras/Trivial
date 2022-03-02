@@ -1,10 +1,10 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import smellytrivial.Game;
+
 public class TrivialTests {
     @Test
     public void true_is_true(){
-        Assertions.assertTrue(false);
         Assertions.assertTrue(true);
     }
 
@@ -28,6 +28,31 @@ public class TrivialTests {
         String actual = sut.nuevaPosicionJugador();
 
         // Assert
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void menorADosJugadores() {
+        Game sut = new Game();
+        sut.agregar("María");
+        sut.esJugable();
+
+        Boolean expected = false;
+        boolean actual = sut.esJugable();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void igualAdosJugadores() {
+        Game sut = new Game();
+        sut.agregar("María");
+        sut.agregar("Juan");
+        sut.esJugable();
+
+        Boolean expected = true;
+        boolean actual = sut.esJugable();
+
         Assertions.assertEquals(expected, actual);
     }
 }
