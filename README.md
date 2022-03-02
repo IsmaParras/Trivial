@@ -14,3 +14,6 @@ Creamos la condición de más de 6 jugadores en el método esJugable(). En el te
 
 ## Problema 3
 En tirarDado() colocamos el if de forma que el jugador pueda salir de la cárcel. Lo comprueblo en los test con salirCarcel() donde el jugador sale al acertal la pregunta.
+
+## Problema 4
+En el launcher cambio la variable noGanador por ganador y cuando se de se acabe la partida.

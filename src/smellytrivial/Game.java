@@ -173,7 +173,7 @@ public class Game {
     }
 
 
-    private boolean jugadorHaGanado() {
+    public boolean jugadorHaGanado() {
         return !(monederos[jugadorActual] == 6);
     }
 }

@@ -1,13 +1,11 @@
 package launcher;
 
-
 import smellytrivial.Game;
-
 import java.util.Random;
 
 public class GameLauncher {
 
-    private static boolean noGanador;
+    private static boolean Ganador;
 
     public static void main(String[] args) {
         Game juego = new Game();
@@ -15,8 +13,6 @@ public class GameLauncher {
         juego.agregar("Maria");
         juego.agregar("Juan");
         juego.agregar("Antonio");
-        juego.agregar("Fernando");
-        juego.agregar("Carmen");
 
         Random rand = new Random();
 
@@ -25,14 +21,14 @@ public class GameLauncher {
             juego.tirarDado(rand.nextInt(5) + 1);
 
             if (rand.nextInt(9) == 7) {
-                noGanador = juego.respuestaIncorrecta();
+                Ganador = juego.respuestaIncorrecta();
             } else {
-                noGanador = juego.fueRespuestaCorrecta();
+                Ganador = juego.fueRespuestaCorrecta();
             }
 
 
 
-        } while (noGanador);
+        } while (Ganador);
 
     }
 }
