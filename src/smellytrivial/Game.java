@@ -15,7 +15,7 @@ public class Game {
     LinkedList preguntasMusica = new LinkedList();
 
     int jugadorActual = 0;
-    boolean estaSaliendoDeLaCarcel;
+    boolean saliendoDeCarcel;
 
     public Game() {
         for (int i = 0; i < 50; i++) {
@@ -52,6 +52,7 @@ public class Game {
         System.out.println("Es el jugador número " + jugadores.size());
         return true;
     }
+
     public int cuantosJugadores() {
         return jugadores.size();
     }
@@ -61,7 +62,7 @@ public class Game {
         System.out.println("Ha sacado un " + puntosDado);
         if (enCasillaCastigo[jugadorActual]) {
             if (puntosDado % 2 != 0) {
-                estaSaliendoDeLaCarcel = true;
+                saliendoDeCarcel = true;
                 System.out.println(jugadores.get(jugadorActual) + " sale de la casilla de castigo");
                 posiciones[jugadorActual] = posiciones[jugadorActual] + puntosDado;
                 if (posiciones[jugadorActual] > 11) {
@@ -72,12 +73,11 @@ public class Game {
                 hacerPregunta();
             } else {
                 System.out.println(jugadores.get(jugadorActual) + " no sale de la casilla de castigo");
-                estaSaliendoDeLaCarcel = false;
+                saliendoDeCarcel = false;
             }
         } else {
             posiciones[jugadorActual] = posiciones[jugadorActual] + puntosDado;
             if (posiciones[jugadorActual] > 11) posiciones[jugadorActual] = posiciones[jugadorActual] - 12;
-
             System.out.println(nuevaPosicionJugador());
             System.out.println("La categoría es " + categoriaActual());
             hacerPregunta();
@@ -117,43 +117,35 @@ public class Game {
         return "Música";
     }
 
-    public boolean RespuestaCorrecta() {
+    public boolean fueRespuestaCorrecta() {
         if (enCasillaCastigo[jugadorActual]) {
-            if (estaSaliendoDeLaCarcel) {
-                System.out.println("Respuesta correcta!!!!");
-                monederos[jugadorActual]++;
-                System.out.println(jugadores.get(jugadorActual)
-                        + " ahora tiene "
-                        + monederos[jugadorActual]
-                        + " monedas doradas.");
-
-                boolean ganador = jugadorHaGanado();
-                siguienteJugador();
-                return ganador;
+            if (saliendoDeCarcel) {
+                return respCorrecta();
             } else {
                 siguienteJugador();
                 return true;
             }
         } else {
-            System.out.println("Respuesta correcta!!!!");
-            monederos[jugadorActual]++;
-            System.out.println(jugadores.get(jugadorActual)
-                    + " ahora tiene "
-                    + monederos[jugadorActual]
-                    + " monedas doradas.");
-
-            boolean ganador = jugadorHaGanado();
-            siguienteJugador();
-
-            return ganador;
+            return respCorrecta();
         }
+    }
+
+    private boolean respCorrecta() {
+        System.out.println("Respuesta correcta!!!!");
+        monederos[jugadorActual]++;
+        System.out.println(jugadores.get(jugadorActual)
+                + " ahora tiene "
+                + monederos[jugadorActual]
+                + " monedas doradas.");
+        boolean ganador = jugadorHaGanado();
+        siguienteJugador();
+        return ganador;
     }
 
     public boolean respuestaIncorrecta() {
         System.out.println("Respuesta incorrecta");
         System.out.println(jugadores.get(jugadorActual) + " va a la casilla de castigo");
         enCasillaCastigo[jugadorActual] = true;
-
         siguienteJugador();
         return true;
     }
@@ -166,5 +158,4 @@ public class Game {
 
     public boolean jugadorHaGanado() {
         return !(monederos[jugadorActual] == 6);
-    }
-}
+    }}

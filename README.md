@@ -20,3 +20,6 @@ En el launcher cambio la variable noGanador por ganador y cuando se de se acabe 
 
 ## Problema 5
 Selecciono el código para pasar al siguiente jugador en la clase "Game" y hago un extract method y lo voy cambiando en todos los lugares donde esté.
+
+## Problema 6
+En el método de la respuesta correcta encuentro lo que está repetido y lo refactorizo todo y hago un extract method, donde saco el método de respuesta correcta que introduzco donde es necesario.
